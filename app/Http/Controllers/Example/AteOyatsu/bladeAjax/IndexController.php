@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Example\AteOyatsu\bladeAjax;
 
 use App\Http\Controllers\Controller;
+use App\Models\AteOyatsu;
 use App\Models\Oyatsu;
 
 class IndexController extends Controller
@@ -10,9 +11,9 @@ class IndexController extends Controller
     public function __invoke()
     {
         $oyatsus = Oyatsu::all();
-        $ateOyatsus = AteOyatsu::all();
-        $totalCalory = $ateOyatsus->sum('calory');
+        $ateOyatsus = AteOyatsu::all()->load('oyatsu');
+        $totalCalory = $ateOyatsus->sum('oyatsu.calory');
 
-        return view('example.ateOyatsu.blade', compact('oyatsus', 'ateOyatsus', 'totalCalory'));
+        return view('example.ateOyatsuAjax', compact('oyatsus', 'ateOyatsus', 'totalCalory'));
     }
 }

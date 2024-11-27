@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Example\AteOyatsu\Inertia;
 
 use App\Http\Controllers\Controller;
+use App\Models\AteOyatsu;
 use App\Models\Oyatsu;
 
 class IndexController extends Controller
@@ -13,6 +14,6 @@ class IndexController extends Controller
         $ateOyatsu = AteOyatsu::all();
         $totalCalory = $ateOyatsu->sum('calory');
 
-        return inertia('example.ateOyatsu.blade', compact('oyatsu', 'ateOyatsu', 'totalCalory'));
+        return inertia('example.ateOyatsu', compact('oyatsu', 'ateOyatsu', 'totalCalory'));
     }
 }

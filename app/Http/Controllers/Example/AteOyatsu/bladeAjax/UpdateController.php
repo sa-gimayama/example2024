@@ -15,6 +15,6 @@ class UpdateController extends Controller
             'ate_at' => $request->ate_at,
         ]);
 
-        return redirect()->route('example.ateOyatsu.blade.index');
+        return ['status' => 'success', 'ateOyatsu' => AteOyatsu::latest()->first()->load('oyatsu')];
     }
 }
