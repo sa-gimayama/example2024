@@ -8,11 +8,11 @@
 <div x-data="Oyatsu()">
     <h1>おやつを食べる</h1>
     <form>
-        @csrf
         <select name="oyatsu_id" x-model="selectedOyatsu">
-            @foreach($oyatsus as $oyatsu)
-                <option value="{{ $oyatsu->id }}">{{ $oyatsu->name }}({{ $oyatsu->calory }}kcal)</option>
-            @endforeach
+            <option value="">選択してください</option>
+            <template x-for="oyatsu in oyatsus">
+                <option :value="oyatsu.id" x-text="`${oyatsu.name} (${oyatsu.calory}kcal)`"></option>
+            </template>
         </select>
         <input type="date" name="ate_at" x-model="ateAt">
         <button type="button" @click="submitOyatsu">送信</button>
@@ -39,7 +39,7 @@
 <script defer>
     function Oyatsu() {
         return {
-            oyatsu: @json($oyatsus),
+            oyatsus: @json($oyatsus),
             ateOyatsus: @json($ateOyatsus),
             selectedOyatsu: null,
             ateAt: null,
