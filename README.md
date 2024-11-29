@@ -55,9 +55,12 @@ make seed
 これでブラウザからアクセスできると思います。
 
 blade編は
-http://localhost/example/blade
+
+- http://localhost/example/blade
+
 Ajax編は
-http://localhost/example/bladeAjax
+
+- http://localhost/example/bladeAjax
 
 でアクセスできます。
 
