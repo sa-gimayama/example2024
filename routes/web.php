@@ -34,7 +34,7 @@ Route::name('example.')->prefix('example')->group(function () {
             Route::get('/', \App\Http\Controllers\Example\AteOyatsu\bladeAjax\IndexController::class)->name('index');
             Route::post('/', \App\Http\Controllers\Example\AteOyatsu\bladeAjax\UpdateController::class)->name('update');
         });
-        Route::name('inertia')->prefix('inertia')->group(function () {
+        Route::name('inertia.')->prefix('inertia')->group(function () {
             Route::get('/', \App\Http\Controllers\Example\AteOyatsu\Inertia\IndexController::class)->name('index');
             Route::post('/', \App\Http\Controllers\Example\AteOyatsu\Inertia\UpdateController::class)->name('update');
         });

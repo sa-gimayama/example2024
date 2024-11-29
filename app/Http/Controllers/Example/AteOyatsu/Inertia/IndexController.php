@@ -10,10 +10,9 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $oyatsu = Oyatsu::all();
-        $ateOyatsu = AteOyatsu::all();
-        $totalCalory = $ateOyatsu->sum('calory');
+        $oyatsus = Oyatsu::all();
+        $ateOyatsus = AteOyatsu::all()->load('oyatsu');
 
-        return inertia('example.ateOyatsu', compact('oyatsu', 'ateOyatsu', 'totalCalory'));
+        return inertia('Example/ateOyatsu', compact('oyatsus', 'ateOyatsus'));
     }
 }
